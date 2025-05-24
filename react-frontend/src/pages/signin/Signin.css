@@ -1,0 +1,210 @@
+.signin-bg {
+  min-height: 100vh;
+  width: 100vw;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.signin-bg::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(10, 18, 32, 0.85);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.signin-container {
+  position: relative;
+  z-index: 2;
+  background: rgba(20, 22, 34, 0.98);
+  border-radius: 22px;
+  box-shadow: 0 8px 32px 0 rgba(0,0,0,0.35), 0 1.5px 8px 0 #a259fa44;
+  padding: 2.8rem 2.5rem 2.2rem 2.5rem;
+  width: 100%;
+  max-width: 410px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: cardFadeIn 0.9s cubic-bezier(.68,-0.55,.27,1.55);
+  transition: box-shadow 0.3s;
+}
+
+@keyframes cardFadeIn {
+  0% { opacity: 0; transform: translateY(40px) scale(0.97); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.signin-header {
+  color: #fff;
+  font-size: 1.7rem;
+  font-weight: bold;
+  margin-bottom: 2.2rem;
+  text-align: center;
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 12px #0008;
+  transition: color 0.2s;
+  width: 100%;
+}
+
+.signin-form {
+  width: 100%;
+  max-width: 340px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.signin-form label,
+.signin-hint {
+  width: 100%;
+  text-align: left;
+  margin-bottom: 0.2rem;
+}
+
+.signin-form label {
+  margin-top: 0.7rem;
+  color: #e0e0e0;
+  font-size: 1rem;
+  letter-spacing: 0.2px;
+  transition: color 0.2s;
+}
+
+.signin-form input {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border-radius: 10px;
+  border: 2px solid #23263a;
+  font-size: 1.1rem;
+  background: #181a2a;
+  color: #fff;
+  margin-bottom: 0.1rem;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+  box-shadow: 0 1.5px 6px 0 #0002;
+  display: block;
+}
+
+.signin-form input:focus {
+  outline: none;
+  border-color: #a259fa;
+  box-shadow: 0 0 0 2px #a259fa33, 0 2px 12px #a259fa22;
+  background: #23263a;
+}
+
+.signin-form input:hover {
+  border-color: #7c3aed;
+  background: #20223a;
+}
+
+.signin-hint {
+  color: #aaa;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  margin-top: -0.3rem;
+  letter-spacing: 0.1px;
+}
+
+.signin-form button {
+  width: 100%;
+  margin-top: 1.5rem;
+  margin-bottom: 1.2rem;
+  padding: 0.95rem 0;
+  background: linear-gradient(90deg, #a259fa 0%, #7c3aed 100%);
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.13rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 2px 12px #a259fa33;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+  letter-spacing: 0.5px;
+  display: block;
+}
+
+.signin-form button:hover, .signin-form button:focus {
+  background: linear-gradient(90deg, #7c3aed 0%, #a259fa 100%);
+  transform: scale(1.04);
+  box-shadow: 0 4px 24px #a259fa55;
+}
+
+.signin-form button:active {
+  transform: scale(0.98);
+  background: #a259fa;
+}
+
+.signin-error, .signin-success {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.signin-error {
+  color: #ff6b6b;
+  background: #2a1a1a;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  margin-top: 1rem;
+  text-align: center;
+  box-shadow: 0 1.5px 6px #ff6b6b22;
+  animation: shake 0.3s;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  20% { transform: translateX(-6px); }
+  40% { transform: translateX(6px); }
+  60% { transform: translateX(-4px); }
+  80% { transform: translateX(4px); }
+  100% { transform: translateX(0); }
+}
+
+.signin-success {
+  color: #4ade80;
+  background: #1a2a1a;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  margin-top: 1rem;
+  text-align: center;
+  box-shadow: 0 1.5px 6px #4ade8022;
+  animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.signin-footer {
+  margin-top: 0.7rem;
+  color: #bbb;
+  text-align: center;
+  font-size: 1.05rem;
+  letter-spacing: 0.2px;
+  text-shadow: 0 1px 6px #0005;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.signin-footer a {
+  color: #fff;
+  font-weight: bold;
+  text-decoration: underline;
+  margin-left: 0.3rem;
+  transition: color 0.2s, text-shadow 0.2s;
+  text-shadow: 0 1px 6px #a259fa55;
+}
+
+.signin-footer a:hover {
+  color: #a259fa;
+  text-shadow: 0 2px 12px #a259fa99;
+} 
