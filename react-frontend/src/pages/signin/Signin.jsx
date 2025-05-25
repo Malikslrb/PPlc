@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Signin.css';
 import stadiumBg from '../../images/360_F_1016880316_LWFicWYhqXzAiGZOHqoKx7esuF5Jy737.jpg';
+import { Link } from 'react-router-dom';
 
 export default function Signin() {
   const [fullName, setFullName] = useState('');
@@ -91,7 +92,7 @@ export default function Signin() {
         </form>
         <div className="signin-footer">
           <span>Déjà un compte ? </span>
-          <a href="/login">SE CONNECTER</a>
+          <Link to="/login">SE CONNECTER</Link>
         </div>
       </div>
     </div>
