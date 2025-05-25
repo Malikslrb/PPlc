@@ -35,20 +35,20 @@ public class AuthController {
     @PostMapping("/register")
     public Map<String, Object> register(@RequestBody Map<String, String> registerData) {
         Map<String, Object> res = new HashMap<>();
-        String username = registerData.get("email");
+        String email = registerData.get("email");
         String password = registerData.get("password");
-        if (username == null || password == null) {
+        if (email == null || password == null) {
             res.put("success", false);
             res.put("message", "Email et mot de passe requis.");
             return res;
         }
-        if (authService.getUserRepository().findByUsername(username).isPresent()) {
+        if (authService.getUserRepository().findByUsername(email).isPresent()) {
             res.put("success", false);
             res.put("message", "Cet email existe déjà.");
             return res;
         }
         User user = new User();
-        user.setUsername(username);
+        user.setUsername(email);
         user.setPassword(passwordEncoder.encode(password));
         authService.getUserRepository().save(user);
         res.put("success", true);

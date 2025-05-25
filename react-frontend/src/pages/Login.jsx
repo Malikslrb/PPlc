@@ -4,7 +4,7 @@ import stadiumBg from '../images/360_F_1016880316_LWFicWYhqXzAiGZOHqoKx7esuF5Jy7
 import { Link } from 'react-router-dom';
 
 export default function Login({ onLogin }) {
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [remember, setRemember] = useState(false);
@@ -16,7 +16,7 @@ export default function Login({ onLogin }) {
       const res = await fetch('http://localhost:8080/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username, password }),
+        body: JSON.stringify({ email , password }),
         credentials: 'include'
       });
       const data = await res.json();
@@ -25,7 +25,7 @@ export default function Login({ onLogin }) {
         if (onLogin) onLogin();
         window.location.href = '/';
       } else {
-        setError("Nom d'utilisateur ou mot de passe incorrect.");
+        setError("Email ou mot de passe incorrect.");
       }
     } catch {
       setError("Erreur de connexion au serveur.");
@@ -42,11 +42,11 @@ export default function Login({ onLogin }) {
           <input
             type="email"
             placeholder="alex.jordan@gmail.com"
-            value={username}
-            onChange={e => setUsername(e.target.value)}
+            value={email}
+            onChange={e => setEmail(e.target.value)}
             required
             className="login-input"
-            autoComplete="username"
+            autoComplete="email"
           />
           <label className="login-label">Password</label>
           <input

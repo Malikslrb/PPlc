@@ -14,8 +14,8 @@ public class AuthService {
     @Autowired 
     private PasswordEncoder passwordEncoder;
 
-    public Optional<User> authenticate(String username, String password) {
-        return userRepository.findByUsername(username)
+    public Optional<User> authenticate(String email, String password) {
+        return userRepository.findByUsername(email)
                 .filter(user -> passwordEncoder.matches(password, user.getPassword()));
     }
 
