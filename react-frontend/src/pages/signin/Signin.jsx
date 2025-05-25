@@ -22,8 +22,29 @@ export default function Signin() {
       setError('Le mot de passe doit contenir au moins 8 caractères.');
       return;
     }
-    // Simulate API call
-    setSuccess('Compte créé avec succès !');
+    try {
+      const res = await fetch('http://localhost:8080/api/signup', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          nom: fullName,
+          email,
+          mot_de_passe: password
+        })
+      });
+      const data = await res.json();
+      if (data.success) {
+        setSuccess('Compte créé avec succès !');
+        setFullName('');
+        setEmail('');
+        setPassword('');
+        setConfirmPassword('');
+      } else {
+        setError(data.error || 'Erreur lors de la création du compte.');
+      }
+    } catch (err) {
+      setError('Erreur de connexion au serveur.');
+    }
   };
 
   return (
