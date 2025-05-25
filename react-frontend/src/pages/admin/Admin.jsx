@@ -1,8 +1,10 @@
 import React from 'react';
 import './Admin.css';
 import Navbar from '../../components/navbar/Navbar';
+import { useNavigate } from 'react-router-dom';
 
 export default function Admin() {
+  const navigate = useNavigate();
   return (
     <div className="admin-bg">
       <Navbar />
@@ -10,7 +12,7 @@ export default function Admin() {
         <div className="admin-card">
           <h1 className="admin-title">Admin Dashboard</h1>
           <p className="admin-welcome">Bienvenue sur le tableau de bord administrateur.</p>
-          <button className="admin-create-btn" onClick={() => window.location.href = '/admin/create-game'}>
+          <button className="admin-create-btn" onClick={() => navigate('/create-game')}>
             Créer un match
           </button>
           <div className="admin-section">

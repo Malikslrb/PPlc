@@ -30,7 +30,8 @@ export default function Signin() {
         body: JSON.stringify({
           nom: fullName,
           email: email,
-          mot_de_passe: password
+          mot_de_passe: password,
+          role: 'client'
         })
       });
       const data = await res.json();
