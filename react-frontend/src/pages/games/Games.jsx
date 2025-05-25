@@ -6,6 +6,7 @@ import spain from '../../images/spain.jpg';
 import milan from '../../images/milan.jpg';
 import stade from '../../images/stade.jpg';
 import realvsbarca from '../../images/realvsbarca.jpg';
+import { useNavigate } from 'react-router-dom';
 
 const sections = [
   {
@@ -76,6 +77,7 @@ const sections = [
 ];
 
 export default function Games() {
+  const navigate = useNavigate();
   return (
     <div className="games-bg">
       <Navbar />
@@ -90,7 +92,7 @@ export default function Games() {
                   <div className="game-card-info">
                     <div className="game-card-title">{game.title}</div>
                     <div className="game-card-stadium">{game.stadium}</div>
-                    <button className="game-card-btn">Réserver</button>
+                    <button className="game-card-btn" onClick={() => navigate('/reserve')}>Réserver</button>
                   </div>
                 </div>
               ))}

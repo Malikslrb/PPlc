@@ -1,0 +1,79 @@
+.ticket-bg {
+  background: linear-gradient(rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 1)), url('/UCL18-21_PressKit_KeyVisual_Stadium.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #f8fafc;
+  font-family: 'Inter', sans-serif;
+  padding: 2rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ticket-logo {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 2rem;
+}
+
+.ticket-main {
+  background: rgba(15, 23, 42, 0.85);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+  padding: 2rem;
+  max-width: 700px;
+  width: 100%;
+}
+
+.ticket-title {
+  font-size: 1.75rem;
+  color: #7c3aed;
+  margin-bottom: 1rem;
+}
+
+.ticket-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.ticket-info-box {
+  flex: 1 1 45%;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1rem;
+  border-radius: 12px;
+}
+
+.ticket-qr-container {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.ticket-qr-text {
+  display: block;
+  margin-top: 0.5rem;
+}
+
+.ticket-print-btn {
+  margin-top: 2rem;
+  padding: 0.75rem 2rem;
+  background-color: #7c3aed;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+@media (max-width: 800px) {
+  .ticket-main {
+    padding: 1rem;
+    max-width: 98vw;
+  }
+  .ticket-info-box {
+    flex: 1 1 100%;
+  }
+} 

@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import './Login.css';
 import stadiumBg from '../images/360_F_1016880316_LWFicWYhqXzAiGZOHqoKx7esuF5Jy737.jpg';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function Login({ onLogin }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [remember, setRemember] = useState(false);
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -23,7 +24,7 @@ export default function Login({ onLogin }) {
       if (data.success) {
         localStorage.setItem('token', data.token);
         if (onLogin) onLogin();
-        window.location.href = '/';
+        navigate('/games');
       } else {
         setError("Email ou mot de passe incorrect.");
       }

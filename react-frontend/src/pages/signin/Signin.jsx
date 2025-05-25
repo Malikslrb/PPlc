@@ -29,7 +29,7 @@ export default function Signin() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           nom: fullName,
-          email,
+          email: email,
           mot_de_passe: password
         })
       });
