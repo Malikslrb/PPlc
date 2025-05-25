@@ -24,7 +24,13 @@ export default function Login({ onLogin }) {
       if (data.success) {
         localStorage.setItem('token', data.token);
         if (onLogin) onLogin();
-        navigate('/games');
+        if (data.role === 'client') {
+          navigate('/games');
+        } else if (data.role === 'administrateur') {
+          navigate('/admin');
+        } else {
+          setError("Rôle inconnu. Contactez l'administrateur.");
+        }
       } else {
         setError("Email ou mot de passe incorrect.");
       }

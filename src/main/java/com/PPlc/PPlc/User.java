@@ -3,7 +3,7 @@ package com.PPlc.PPlc;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "utilisateur") // ou "users" si c’est ça dans ta BDD
+@Table(name = "utilisateur") // ou "users" si c'est ça dans ta BDD
 public class User {
 
     @Id
@@ -17,6 +17,9 @@ public class User {
     @Column(name = "mot_de_passe", nullable = false)
     private String password;
 
+    @Column(name = "role", nullable = false)
+    private String role;
+
     // Getters et setters
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
@@ -26,4 +29,7 @@ public class User {
 
     public String getPassword() { return password; }
     public void setPassword(String password) { this.password = password; }
+
+    public String getRole() { return role; }
+    public void setRole(String role) { this.role = role; }
 }

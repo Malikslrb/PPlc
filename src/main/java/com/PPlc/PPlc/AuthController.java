@@ -23,6 +23,7 @@ public class AuthController {
                     Map<String, Object> res = new HashMap<>();
                     res.put("success", true);
                     res.put("token", "dummy-token"); // Remplacer par un vrai JWT si besoin
+                    res.put("role", user.getRole());
                     return res;
                 })
                 .orElseGet(() -> {
@@ -50,6 +51,7 @@ public class AuthController {
         User user = new User();
         user.setUsername(email);
         user.setPassword(passwordEncoder.encode(password));
+        user.setRole("client");
         authService.getUserRepository().save(user);
         res.put("success", true);
         return res;
