@@ -1,97 +1,70 @@
 import React from 'react';
-import QRCode from 'qrcode.react';
+
+import './Ticket.css';
+import { useNavigate } from 'react-router-dom';
+import stadiumBg from '../../images/360_F_1016880316_LWFicWYhqXzAiGZOHqoKx7esuF5Jy737.jpg';
 
 const Ticket = () => {
+  const navigate = useNavigate();
   return (
-    <div style={styles.body}>
-      <div style={styles.logo}>🎟️ GOATICKET</div>
-      <div style={styles.ticket}>
-        <h2 style={styles.title}>🎫 Reçu de Paiement</h2>
-        <div style={styles.ticketInfo}>
-          <div style={styles.infoBox}><strong>Nom du Match:</strong><br /> Paris SG vs Real Madrid</div>
-          <div style={styles.infoBox}><strong>Date:</strong><br /> 12 Juin 2025</div>
-          <div style={styles.infoBox}><strong>Heure:</strong><br /> 20:45</div>
-          <div style={styles.infoBox}><strong>Lieu:</strong><br /> Parc des Princes</div>
-          <div style={styles.infoBox}><strong>Nom Acheteur:</strong><br /> Malik Silarbi</div>
-          <div style={styles.infoBox}><strong>Email:</strong><br /> malik2005@email.com</div>
-          <div style={styles.infoBox}><strong>Place:</strong><br /> Tribune Est - Rang B - Siège 24</div>
-          <div style={styles.infoBox}><strong>Montant Payé:</strong><br /> 75 €</div>
-        </div>
-        <div style={styles.qrContainer}>
-          <QRCode
-            value="GOATICKET - Billet #GOA12345678 - Jean Dupont - Paris SG vs Real Madrid - 12 Juin 2025"
-            size={100}
-          />
-          <small style={styles.qrText}>Code billet #GOA12345678</small>
+    <div className="ticket-bg" style={{ backgroundImage: `url(${stadiumBg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+      <button
+        onClick={() => navigate('/paiement')}
+        style={{
+          position: 'absolute',
+          left: 30,
+          top: 30,
+          zIndex: 10,
+          display: 'flex',
+          alignItems: 'center',
+          gap: '0.7rem',
+          background: 'linear-gradient(90deg,#fff 60%,#f6f6fa 100%)',
+          color: '#5b3ec8',
+          border: '1.5px solid #ece9f7',
+          borderRadius: 12,
+          padding: '0.55rem 1.4rem',
+          fontWeight: 'bold',
+          fontSize: '1.08rem',
+          boxShadow: '0 2px 12px #a259fa22',
+          cursor: 'pointer',
+          transition: 'background 0.18s, color 0.18s, box-shadow 0.18s',
+        }}
+        onMouseOver={e => {
+          e.currentTarget.style.background = 'linear-gradient(90deg,#a259fa22 0%,#fff 100%)';
+          e.currentTarget.style.color = '#7c3aed';
+          e.currentTarget.style.boxShadow = '0 4px 16px #a259fa44';
+        }}
+        onMouseOut={e => {
+          e.currentTarget.style.background = 'linear-gradient(90deg,#fff 60%,#f6f6fa 100%)';
+          e.currentTarget.style.color = '#5b3ec8';
+          e.currentTarget.style.boxShadow = '0 2px 12px #a259fa22';
+        }}
+      >
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ marginRight: 6 }}>
+          <path d="M13.5 17L8 11L13.5 5" stroke="#7c3aed" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+        Retour
+      </button>
+      <div className="ticket-logo">🎟️ GOATICKET</div>
+      <div className="ticket-main">
+        <h2 className="ticket-title">🎫 Reçu de Paiement</h2>
+        <div className="ticket-info">
+          <div className="ticket-info-box"><strong>Nom du Match:</strong><br /> Paris SG vs Real Madrid</div>
+          <div className="ticket-info-box"><strong>Date:</strong><br /> 12 Juin 2025</div>
+          <div className="ticket-info-box"><strong>Heure:</strong><br /> 20:45</div>
+          <div className="ticket-info-box"><strong>Lieu:</strong><br /> Parc des Princes</div>
+          <div className="ticket-info-box"><strong>Nom Acheteur:</strong><br /> Malik Silarbi</div>
+          <div className="ticket-info-box"><strong>Email:</strong><br /> malik2005@email.com</div>
+          <div className="ticket-info-box"><strong>Place:</strong><br /> Tribune Est - Rang B - Siège 24</div>
+          <div className="ticket-info-box"><strong>Montant Payé:</strong><br /> 75 €</div>
+        
+          
+          <small className="ticket-qr-text">Code billet #GOA12345678</small>
         </div>
       </div>
-      <button style={styles.printButton} onClick={() => window.print()}>Imprimer le Reçu</button>
+      <button className="ticket-print-btn" onClick={() => window.print()}>Imprimer le Reçu</button>
     </div>
   );
-};
-
-const styles = {
-  body: {
-    background: "linear-gradient(rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 1)), url('/UCL18-21_PressKit_KeyVisual_Stadium.jpg') no-repeat center center fixed",
-    backgroundSize: 'cover',
-    color: '#f8fafc',
-    fontFamily: 'Inter, sans-serif',
-    padding: '2rem',
-    minHeight: '100vh',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-  },
-  logo: {
-    fontSize: '2.5rem',
-    fontWeight: '800',
-    marginBottom: '2rem',
-  },
-  ticket: {
-    background: 'rgba(15, 23, 42, 0.85)',
-    borderRadius: '16px',
-    border: '1px solid rgba(255, 255, 255, 0.1)',
-    boxShadow: '0 15px 30px rgba(0, 0, 0, 0.3)',
-    padding: '2rem',
-    maxWidth: '700px',
-    width: '100%',
-  },
-  title: {
-    fontSize: '1.75rem',
-    color: '#7c3aed',
-    marginBottom: '1rem',
-  },
-  ticketInfo: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    gap: '1rem',
-    marginBottom: '1.5rem',
-  },
-  infoBox: {
-    flex: '1 1 45%',
-    background: 'rgba(255, 255, 255, 0.05)',
-    padding: '1rem',
-    borderRadius: '12px',
-  },
-  qrContainer: {
-    textAlign: 'center',
-    marginTop: '2rem',
-  },
-  qrText: {
-    display: 'block',
-    marginTop: '0.5rem',
-  },
-  printButton: {
-    marginTop: '2rem',
-    padding: '0.75rem 2rem',
-    backgroundColor: '#7c3aed',
-    color: 'white',
-    border: 'none',
-    borderRadius: '10px',
-    fontWeight: '600',
-    cursor: 'pointer',
-    transition: '0.3s ease',
-  },
 };
 
 export default Ticket; 

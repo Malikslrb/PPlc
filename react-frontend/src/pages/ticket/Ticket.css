@@ -3,33 +3,47 @@
   background-size: cover;
   color: #f8fafc;
   font-family: 'Inter', sans-serif;
-  padding: 2rem;
+  width: 100vw;
+  height: 100vh;
   min-height: 100vh;
+  min-width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  padding: 0;
 }
 
 .ticket-logo {
   font-size: 2.5rem;
   font-weight: 800;
   margin-bottom: 2rem;
+  text-align: center;
+  letter-spacing: 2px;
+  color: #fff;
+  text-shadow: 0 2px 12px #000a, 0 1px 0 #7c3aed;
 }
 
 .ticket-main {
-  background: rgba(15, 23, 42, 0.85);
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-  padding: 2rem;
-  max-width: 700px;
+  background: rgba(15, 23, 42, 0.92);
+  border-radius: 22px;
+  border: 1.5px solid #7c3aed33;
+  box-shadow: 0 8px 32px #7c3aed33, 0 1.5px 8px #0008;
+  padding: 2.5rem 2.5rem 2rem 2.5rem;
+  max-width: 480px;
   width: 100%;
+  min-width: 320px;
+  margin: 0 auto;
 }
 
 .ticket-title {
   font-size: 1.75rem;
   color: #7c3aed;
   margin-bottom: 1rem;
+  text-align: center;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 8px #fff2;
 }
 
 .ticket-info {
@@ -37,23 +51,32 @@
   flex-wrap: wrap;
   gap: 1rem;
   margin-bottom: 1.5rem;
+  justify-content: center;
 }
 
 .ticket-info-box {
-  flex: 1 1 45%;
-  background: rgba(255, 255, 255, 0.05);
-  padding: 1rem;
+  flex: 1 1 100%;
+  background: rgba(255, 255, 255, 0.07);
+  padding: 1rem 1.2rem;
   border-radius: 12px;
+  margin-bottom: 0.3rem;
+  color: #fff;
+  font-size: 1.08rem;
+  box-shadow: 0 2px 8px #7c3aed11;
+  border: 1px solid #fff1;
 }
 
 .ticket-qr-container {
   text-align: center;
   margin-top: 2rem;
+  margin-bottom: 0.5rem;
 }
 
 .ticket-qr-text {
   display: block;
   margin-top: 0.5rem;
+  color: #b3a6e5;
+  font-size: 0.98rem;
 }
 
 .ticket-print-btn {
@@ -66,12 +89,25 @@
   font-weight: 600;
   cursor: pointer;
   transition: 0.3s ease;
+  font-size: 1.08rem;
+  box-shadow: 0 2px 12px #7c3aed33;
+  letter-spacing: 1px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ticket-print-btn:hover, .ticket-print-btn:focus {
+  background: #fff;
+  color: #7c3aed;
+  box-shadow: 0 4px 16px #7c3aed44;
 }
 
 @media (max-width: 800px) {
   .ticket-main {
     padding: 1rem;
     max-width: 98vw;
+    min-width: unset;
   }
   .ticket-info-box {
     flex: 1 1 100%;
