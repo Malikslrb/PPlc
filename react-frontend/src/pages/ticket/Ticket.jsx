@@ -67,6 +67,27 @@ const Ticket = () => {
         </div>
       </div>
       <button className="ticket-print-btn" onClick={() => window.print()}>Imprimer le Reçu</button>
+      <button
+        className="games-top-btn"
+        style={{
+          position: 'absolute',
+          top: 28,
+          right: 38,
+          zIndex: 20,
+          background: 'linear-gradient(90deg,#7c3aed 0%,#a259fa 100%)',
+          color: '#fff',
+          fontWeight: 'bold',
+          fontSize: '1.08rem',
+          border: 'none',
+          borderRadius: '12px',
+          padding: '0.7rem 2.1rem',
+          boxShadow: '0 4px 16px #7c3aed44',
+          cursor: 'pointer',
+          letterSpacing: '1px',
+          transition: 'background 0.18s, color 0.18s, box-shadow 0.18s',
+        }}
+        onClick={() => navigate('/games')}
+      >Games</button>
     </div>
   );
 };
