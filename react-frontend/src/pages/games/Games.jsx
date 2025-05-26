@@ -1,10 +1,10 @@
 import React from 'react';
 import './Games.css';
 import Navbar from '../../components/navbar/Navbar';
-import barcareal from '../../images/barcareal.jpg';
-import spain from '../../images/spain.jpg';
-import milan from '../../images/milan.jpg';
-import stade from '../../images/stade.jpg';
+import barcareal from '../../images/real.jpg';
+import spain from '../../images/ger.jpg';
+import milan from '../../images/inter.png';
+import stade from '../../images/psg.jpg';
 import realvsbarca from '../../images/realvsbarca.jpg';
 import { useNavigate } from 'react-router-dom';
 
