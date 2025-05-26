@@ -22,6 +22,7 @@
   letter-spacing: 2px;
   color: #fff;
   text-shadow: 0 2px 12px #000a, 0 1px 0 #7c3aed;
+  margin-top: 4rem;
 }
 
 .ticket-main {
@@ -40,6 +41,7 @@
   font-size: 1.75rem;
   color: #7c3aed;
   margin-bottom: 1rem;
+  margin-top: -2.2rem;
   text-align: center;
   font-weight: 700;
   letter-spacing: 1px;
@@ -101,6 +103,10 @@
   background: #fff;
   color: #7c3aed;
   box-shadow: 0 4px 16px #7c3aed44;
+}
+
+.ticket-back-btn-custom {
+  margin-top: 2.5rem;
 }
 
 @media (max-width: 800px) {

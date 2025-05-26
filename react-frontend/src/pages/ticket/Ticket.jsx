@@ -3,14 +3,16 @@ import React from 'react';
 import './Ticket.css';
 import { useNavigate, useLocation } from 'react-router-dom';
 import stadiumBg from '../../images/360_F_1016880316_LWFicWYhqXzAiGZOHqoKx7esuF5Jy737.jpg';
+import qr from '../../images/qr.png';
 
 const Ticket = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const ticket = location.state || {};
   return (
-    <div className="ticket-bg" style={{ backgroundImage: `url(${stadiumBg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+    <div className="games-bg">
       <button
+        className="ticket-back-btn-custom"
         onClick={() => navigate('/paiement')}
         style={{
           position: 'absolute',
@@ -47,7 +49,7 @@ const Ticket = () => {
         </svg>
         Retour
       </button>
-      <div className="ticket-logo">🎟️ GOATICKET</div>
+      <div className="ticket-logo" style={{textAlign:'left',marginLeft:'2.5rem',marginTop:'0'}}>🎟️ GOATICKET</div>
       <div className="ticket-main">
         <h2 className="ticket-title">🎫 Reçu de Paiement</h2>
         <div className="ticket-info">
@@ -58,6 +60,9 @@ const Ticket = () => {
           <div className="ticket-info-box"><strong>Section:</strong><br /> {ticket.section || '-'}</div>
           <div className="ticket-info-box"><strong>Place:</strong><br /> {ticket.seat || '-'}</div>
           <div className="ticket-info-box"><strong>Montant Payé:</strong><br /> {ticket.price ? `${ticket.price} €` : '-'} </div>
+        </div>
+        <div style={{display:'flex',alignItems:'center',justifyContent:'center',gap:'0.7rem',marginTop:'1.2rem'}}>
+          <img src={qr} alt="QR Code" style={{height:'64px',width:'64px',objectFit:'contain',borderRadius:'8px',boxShadow:'0 2px 8px #7c3aed22'}} />
           <small className="ticket-qr-text">Code billet #GOA12345678</small>
         </div>
       </div>
