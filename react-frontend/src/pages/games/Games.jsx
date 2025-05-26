@@ -6,6 +6,10 @@ import spain from '../../images/ger.jpg';
 import milan from '../../images/inter.png';
 import stade from '../../images/psg.jpg';
 import realvsbarca from '../../images/bvb.png';
+import b04 from '../../images/b04.jpg';
+import manUvsArs from '../../images/manU vs ARS.jpg';
+import livVsChe from '../../images/liv vs che.jpg';
+import france from '../../images/france.jpg';
 import { useNavigate } from 'react-router-dom';
 
 const sections = [
@@ -74,7 +78,7 @@ const sections = [
         }
       },
       {
-        image: realvsbarca,
+        image: france,
         title: 'France vs Italy',
         stadium: 'Allianz Riviera, Nice',
         date: '2024-03-26',
@@ -94,7 +98,7 @@ const sections = [
     isUCL: false,
     games: [
       {
-        image: stade,
+        image: livVsChe,
         title: 'Liverpool vs Chelsea',
         stadium: 'Anfield, Liverpool',
         date: '2024-03-30',
@@ -107,7 +111,7 @@ const sections = [
         }
       },
       {
-        image: milan,
+        image: manUvsArs,
         title: 'Manchester United vs Arsenal',
         stadium: 'Old Trafford, Manchester',
         date: '2024-03-31',
@@ -140,7 +144,7 @@ const sections = [
         }
       },
       {
-        image: stade,
+        image: b04,
         title: 'RB Leipzig vs Bayer Leverkusen',
         stadium: 'Red Bull Arena, Leipzig',
         date: '2024-03-31',
