@@ -5,7 +5,7 @@ import barcareal from '../../images/real.jpg';
 import spain from '../../images/ger.jpg';
 import milan from '../../images/inter.png';
 import stade from '../../images/psg.jpg';
-import realvsbarca from '../../images/realvsbarca.jpg';
+import realvsbarca from '../../images/bvb.png';
 import { useNavigate } from 'react-router-dom';
 
 const sections = [
