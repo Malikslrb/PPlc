@@ -52,7 +52,10 @@ export default function Signin() {
   return (
     <div className="signin-bg" style={{ backgroundImage: `url(${stadiumBg})` }}>
       <div className="signin-container">
-        <div className="signin-header">Créer un compte</div>
+        <div className="signin-header">Welcome to GOATICKET</div>
+        <div className="signin-desc" style={{marginBottom: '1.2rem', color: '#b3b3b3', fontSize: '1.08rem', textAlign: 'center'}}>
+          Gérez facilement vos réservations et achats de billets pour tous les grands matchs de football. GOATICKET vous permet de consulter les rencontres à venir, réserver vos places, payer en ligne et recevoir vos tickets instantanément. Simple, rapide et sécurisé pour tous les passionnés de sport !
+        </div>
         <form className="signin-form" onSubmit={handleSubmit}>
           <label>Nom complet</label>
           <input

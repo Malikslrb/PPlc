@@ -1,11 +1,13 @@
 import React from 'react';
 
 import './Ticket.css';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import stadiumBg from '../../images/360_F_1016880316_LWFicWYhqXzAiGZOHqoKx7esuF5Jy737.jpg';
 
 const Ticket = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const ticket = location.state || {};
   return (
     <div className="ticket-bg" style={{ backgroundImage: `url(${stadiumBg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
       <button
@@ -49,16 +51,13 @@ const Ticket = () => {
       <div className="ticket-main">
         <h2 className="ticket-title">🎫 Reçu de Paiement</h2>
         <div className="ticket-info">
-          <div className="ticket-info-box"><strong>Nom du Match:</strong><br /> Paris SG vs Real Madrid</div>
-          <div className="ticket-info-box"><strong>Date:</strong><br /> 12 Juin 2025</div>
-          <div className="ticket-info-box"><strong>Heure:</strong><br /> 20:45</div>
-          <div className="ticket-info-box"><strong>Lieu:</strong><br /> Parc des Princes</div>
-          <div className="ticket-info-box"><strong>Nom Acheteur:</strong><br /> Malik Silarbi</div>
-          <div className="ticket-info-box"><strong>Email:</strong><br /> malik2005@email.com</div>
-          <div className="ticket-info-box"><strong>Place:</strong><br /> Tribune Est - Rang B - Siège 24</div>
-          <div className="ticket-info-box"><strong>Montant Payé:</strong><br /> 75 €</div>
-        
-          
+          <div className="ticket-info-box"><strong>Nom du Match:</strong><br /> {ticket.teams ? `${ticket.teams.home} vs ${ticket.teams.away}` : '-'}</div>
+          <div className="ticket-info-box"><strong>Date:</strong><br /> {ticket.date || '-'}</div>
+          <div className="ticket-info-box"><strong>Heure:</strong><br /> {ticket.time || '-'}</div>
+          <div className="ticket-info-box"><strong>Lieu:</strong><br /> {ticket.stadium || '-'}</div>
+          <div className="ticket-info-box"><strong>Section:</strong><br /> {ticket.section || '-'}</div>
+          <div className="ticket-info-box"><strong>Place:</strong><br /> {ticket.seat || '-'}</div>
+          <div className="ticket-info-box"><strong>Montant Payé:</strong><br /> {ticket.price ? `${ticket.price} €` : '-'} </div>
           <small className="ticket-qr-text">Code billet #GOA12345678</small>
         </div>
       </div>

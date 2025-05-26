@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './Reserve.css';
 import stadiumBg from '../../images/360_F_1016880316_LWFicWYhqXzAiGZOHqoKx7esuF5Jy737.jpg';
 import stadiumMap from '../../images/UCL18-21_PressKit_KeyVisual_Stadium.jpg';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const sections = [
   {
@@ -35,6 +35,8 @@ export default function Reserve() {
   const [selectedSection, setSelectedSection] = useState(null);
   const [selectedSeat, setSelectedSeat] = useState(null);
   const navigate = useNavigate();
+  const location = useLocation();
+  const matchInfo = location.state || {};
 
   const handleBack = () => {
     navigate('/games');
@@ -52,6 +54,7 @@ export default function Reserve() {
   const handleConfirm = () => {
     navigate('/paiement', {
       state: {
+        ...matchInfo,
         section: selectedSection ? getSectionLabel(selectedSection.name) : null,
         seat: selectedSeat,
         price: price

@@ -89,7 +89,7 @@ export default function Paiement() {
     setSubmitting(true);
     setTimeout(() => {
       setSubmitting(false);
-      navigate('/ticket');
+      navigate('/ticket', { state: { ...location.state } });
     }, 1200);
   };
 

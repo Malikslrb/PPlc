@@ -209,7 +209,7 @@ export default function Games() {
                       </div>
                     </div>
 
-                    <button className="game-card-btn" onClick={() => navigate('/reserve')}>
+                    <button className="game-card-btn" onClick={() => navigate('/reserve', { state: { ...game, league: section.title } })}>
                       Réserver
                     </button>
                   </div>

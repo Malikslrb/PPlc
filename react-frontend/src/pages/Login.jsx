@@ -42,13 +42,15 @@ export default function Login({ onLogin }) {
   return (
     <div className="login-bg" style={{ backgroundImage: `url(${stadiumBg})` }}>
       <div className="login-container">
-        <h2 className="login-title">Welcome back to Nucleus</h2>
-        <div className="login-desc">Build your design system effortlessly with our powerful component library.</div>
+        <h2 className="login-title">Welcome to GOATICKET</h2>
+        <div className="login-desc" style={{marginBottom: '1.2rem', color: '#b3b3b3', fontSize: '1.08rem', textAlign: 'center'}}>
+          Gérez facilement vos réservations et achats de billets pour tous les grands matchs de football. GOATICKET vous permet de consulter les rencontres à venir, réserver vos places, payer en ligne et recevoir vos tickets instantanément. Simple, rapide et sécurisé pour tous les passionnés de sport !
+        </div>
         <form onSubmit={handleSubmit} className="login-form">
           <label className="login-label">Email</label>
           <input
             type="email"
-            placeholder="alex.jordan@gmail.com"
+            placeholder="malik.silarbi@gmail.com"
             value={email}
             onChange={e => setEmail(e.target.value)}
             required
