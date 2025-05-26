@@ -10,12 +10,14 @@ export default function Navbar() {
   };
   return (
     <nav className="navbar">
-      <div className="navbar-logo">GOATICKET</div>
-      <ul className="navbar-links">
-        <li><a href="/reserve">Réservations</a></li>
-        <li><a href="/signin">Connexion</a></li>
-      </ul>
-      <a href="/login" className="navbar-logout" onClick={handleLogout}>Déconnexion</a>
+      <div className="navbar-left">
+        <div className="navbar-logo">GOATICKET</div>
+        <ul className="navbar-links">
+          <li><a href="/reserve">Réservations</a></li>
+          <li><a href="/signin">Connexion</a></li>
+        </ul>
+        <a href="/login" className="navbar-logout" onClick={handleLogout}>Déconnexion</a>
+      </div>
     </nav>
   );
 } 
