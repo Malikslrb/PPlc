@@ -1,112 +1,153 @@
-.create-game-bg {
+.create-game-page {
   min-height: 100vh;
+  background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
   width: 100vw;
-  background: url('../../images/360_F_1016880316_LWFicWYhqXzAiGZOHqoKx7esuF5Jy737.jpg') center/cover no-repeat;
-  position: relative;
 }
 
 .create-game-content {
-  padding-top: 5.5rem;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  min-height: 80vh;
+  padding: 120px 2rem 2rem 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  flex-grow: 1;
 }
 
-.create-game-card {
-  background: rgba(20, 22, 34, 0.98);
-  border-radius: 18px;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
-  padding: 2.5rem 2.5rem 2rem 2.5rem;
-  width: 100%;
-  max-width: 480px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.create-game-title {
-  color: #fff;
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 1.2rem;
-  text-align: center;
-  letter-spacing: 0.5px;
-  text-shadow: 0 2px 12px #0008;
+.create-game-content h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 2rem;
+  background: linear-gradient(135deg, #fff 0%, #a5b4fc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  margin-top: 5rem;
 }
 
 .create-game-form {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 0.7rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
-.create-game-form label {
-  color: #e0e0e0;
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #a5b4fc;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+input, select {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: #fff;
   font-size: 1rem;
-  margin-bottom: 0.2rem;
-  margin-top: 0.7rem;
-  letter-spacing: 0.2px;
+  transition: all 0.3s ease;
+  width: 90%;
 }
 
-.create-game-form input {
-  width: 100%;
-  padding: 0.9rem 1rem;
-  border-radius: 10px;
-  border: 2px solid #23263a;
-  font-size: 1.1rem;
-  background: #181a2a;
-  color: #fff;
-  margin-bottom: 0.1rem;
-  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
-  box-shadow: 0 1.5px 6px 0 #0002;
-  display: block;
-}
-
-.create-game-form input:focus {
+input:focus, select:focus {
   outline: none;
-  border-color: #a259fa;
-  box-shadow: 0 0 0 2px #a259fa33, 0 2px 12px #a259fa22;
-  background: #23263a;
+  border-color: #a5b4fc;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 0 2px rgba(165, 180, 252, 0.2);
 }
 
-.create-game-form button {
-  width: 100%;
-  margin-top: 1.5rem;
-  margin-bottom: 1.2rem;
-  padding: 0.95rem 0;
-  background: linear-gradient(90deg, #a259fa 0%, #7c3aed 100%);
-  color: #fff;
-  font-weight: bold;
-  font-size: 1.13rem;
-  border: none;
-  border-radius: 10px;
+input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+select {
   cursor: pointer;
-  box-shadow: 0 2px 12px #a259fa33;
-  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
-  letter-spacing: 0.5px;
-  display: block;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23a5b4fc' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1rem;
+  padding-right: 2.5rem;
 }
 
-.create-game-form button:hover, .create-game-form button:focus {
-  background: linear-gradient(90deg, #7c3aed 0%, #a259fa 100%);
-  transform: scale(1.04);
-  box-shadow: 0 4px 24px #a259fa55;
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
 }
 
-.create-game-success {
-  color: #4ade80;
-  background: #1a2a1a;
-  border-radius: 6px;
-  padding: 0.5rem 1rem;
-  margin-top: 1rem;
-  text-align: center;
-  box-shadow: 0 1.5px 6px #4ade8022;
-  animation: fadeIn 0.5s;
+.cancel-btn, .submit-btn {
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+.cancel-btn {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.submit-btn {
+  background: linear-gradient(135deg, #a259fa 0%, #7c3aed 100%);
+  color: #fff;
+  flex: 1;
+}
+
+.cancel-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+}
+
+.submit-btn:hover {
+  background: linear-gradient(135deg, #7c3aed 0%, #a259fa 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+}
+
+@media (max-width: 768px) {
+  .create-game-content {
+    padding: 100px 1rem 1rem 1rem;
+  }
+  
+  .create-game-content h1 {
+    font-size: 2rem;
+  }
+  
+  .create-game-form {
+    padding: 1.5rem;
+  }
+  
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .form-actions {
+    flex-direction: column;
+  }
+  
+  .cancel-btn, .submit-btn {
+    width: 100%;
+  }
 } 

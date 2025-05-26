@@ -1,86 +1,165 @@
 import React, { useState } from 'react';
 import './CreateGame.css';
-import Navbar from '../../components/navbar/Navbar';
+import AdminNavbar from '../../components/navbar/AdminNavbar';
 import { useNavigate } from 'react-router-dom';
 
 export default function CreateGame() {
-  const [form, setForm] = useState({
-    title: '',
+  const navigate = useNavigate();
+  const [formData, setFormData] = useState({
+    homeTeam: '',
+    awayTeam: '',
     stadium: '',
     date: '',
     time: '',
-    image: '',
+    price: '',
+    category: '',
+    league: ''
   });
-  const [submitted, setSubmitted] = useState(false);
-  const navigate = useNavigate();
 
-  const handleChange = e => {
-    setForm({ ...form, [e.target.name]: e.target.value });
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Handle form submission
+    console.log(formData);
+    navigate('/admin');
   };
 
-  const handleSubmit = e => {
-    e.preventDefault();
-    setSubmitted(true);
-    // Placeholder: send form data to backend or update state
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
   };
 
   return (
-    <div className="create-game-bg">
-      <button
-        onClick={() => navigate('/admin')}
-        style={{
-          position: 'absolute',
-          left: 30,
-          top: 60,
-          zIndex: 10,
-          display: 'flex',
-          alignItems: 'center',
-          gap: '0.7rem',
-          background: 'linear-gradient(90deg,#fff 60%,#f6f6fa 100%)',
-          color: '#5b3ec8',
-          border: '1.5px solid #ece9f7',
-          borderRadius: 12,
-          padding: '0.55rem 1.4rem',
-          fontWeight: 'bold',
-          fontSize: '1.08rem',
-          boxShadow: '0 2px 12px #a259fa22',
-          cursor: 'pointer',
-          transition: 'background 0.18s, color 0.18s, box-shadow 0.18s',
-        }}
-        onMouseOver={e => {
-          e.currentTarget.style.background = 'linear-gradient(90deg,#a259fa22 0%,#fff 100%)';
-          e.currentTarget.style.color = '#7c3aed';
-          e.currentTarget.style.boxShadow = '0 4px 16px #a259fa44';
-        }}
-        onMouseOut={e => {
-          e.currentTarget.style.background = 'linear-gradient(90deg,#fff 60%,#f6f6fa 100%)';
-          e.currentTarget.style.color = '#5b3ec8';
-          e.currentTarget.style.boxShadow = '0 2px 12px #a259fa22';
-        }}
-      >
-        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ marginRight: 6 }}>
-          <path d="M13.5 17L8 11L13.5 5" stroke="#7c3aed" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
-        Retour
-      </button>
-      <Navbar />
+    <div className="create-game-page">
+      <AdminNavbar />
       <div className="create-game-content">
-        <div className="create-game-card">
-          <h1 className="create-game-title">Créer un match</h1>
+        <h1>Créer un nouveau match</h1>
+        <div className="create-game-form-container">
           <form className="create-game-form" onSubmit={handleSubmit}>
-            <label>Titre du match</label>
-            <input name="title" value={form.title} onChange={handleChange} required placeholder="ex: FC Barcelona vs Real Madrid" />
-            <label>Stade</label>
-            <input name="stadium" value={form.stadium} onChange={handleChange} required placeholder="ex: Camp Nou, Barcelona" />
-            <label>Date</label>
-            <input name="date" type="date" value={form.date} onChange={handleChange} required />
-            <label>Heure</label>
-            <input name="time" type="time" value={form.time} onChange={handleChange} required />
-            <label>Image (URL)</label>
-            <input name="image" value={form.image} onChange={handleChange} required placeholder="ex: https://..." />
-            <button type="submit">Créer le match</button>
+            <div className="form-group">
+              <label htmlFor="homeTeam">Équipe Domicile</label>
+              <input
+                type="text"
+                id="homeTeam"
+                name="homeTeam"
+                value={formData.homeTeam}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            
+            <div className="form-group">
+              <label htmlFor="awayTeam">Équipe Extérieur</label>
+              <input
+                type="text"
+                id="awayTeam"
+                name="awayTeam"
+                value={formData.awayTeam}
+                onChange={handleChange}
+                required
+              />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="stadium">Stade</label>
+              <input
+                type="text"
+                id="stadium"
+                name="stadium"
+                value={formData.stadium}
+                onChange={handleChange}
+                required
+              />
+            </div>
+
+            <div className="form-row">
+              <div className="form-group">
+                <label htmlFor="date">Date</label>
+                <input
+                  type="date"
+                  id="date"
+                  name="date"
+                  value={formData.date}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="time">Heure</label>
+                <input
+                  type="time"
+                  id="time"
+                  name="time"
+                  value={formData.time}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+            </div>
+
+            <div className="form-row">
+              <div className="form-group">
+                <label htmlFor="price">Prix</label>
+                <input
+                  type="number"
+                  id="price"
+                  name="price"
+                  value={formData.price}
+                  onChange={handleChange}
+                  required
+                  min="0"
+                  step="0.01"
+                />
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="category">Catégorie</label>
+                <select
+                  id="category"
+                  name="category"
+                  value={formData.category}
+                  onChange={handleChange}
+                  required
+                >
+                  <option value="">Sélectionner une catégorie</option>
+                  <option value="Quarter Finals">Quarts de finale</option>
+                  <option value="Semi Finals">Demi-finales</option>
+                  <option value="Final">Finale</option>
+                  <option value="Group Stage">Phase de groupes</option>
+                </select>
+              </div>
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="league">Ligue</label>
+              <select
+                id="league"
+                name="league"
+                value={formData.league}
+                onChange={handleChange}
+                required
+              >
+                <option value="">Sélectionner une ligue</option>
+                <option value="Champions League">Champions League</option>
+                <option value="Premier League">Premier League</option>
+                <option value="La Liga">La Liga</option>
+                <option value="Bundesliga">Bundesliga</option>
+                <option value="Serie A">Serie A</option>
+              </select>
+            </div>
+
+            <div className="form-actions">
+              <button type="button" className="cancel-btn" onClick={() => navigate('/admin')}>
+                Annuler
+              </button>
+              <button type="submit" className="submit-btn">
+                Créer le match
+              </button>
+            </div>
           </form>
-          {submitted && <div className="create-game-success">Match créé (simulation) !</div>}
         </div>
       </div>
     </div>
